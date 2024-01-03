@@ -1,0 +1,46 @@
+<div class="container-fluid pt-5 pb-3" id="portfolio" style="background-color: #f8f9fa;">
+    <div class="container">
+      <div class="position-relative d-flex align-items-center justify-content-center">
+        <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;"><br></h1>
+        <h1 class="position-absolute text-uppercase text-primary">My Portfolio</h1>
+      </div>
+      <div class="row portfolio-container">
+        <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
+          <div class="position-relative overflow-hidden mb-2">
+            <img class="img-fluid rounded w-100" src="path/to/project1_image.jpg" alt="Project 1 Image" style="border: 1px solid #ccc;">
+            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+              <a href="path/to/project1_image.jpg" data-lightbox="portfolio">
+                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="text-center" style="color: #212529;">Project Name 1</h3>
+          <p class="text-center" style="color: #495057;">
+            Description for Project 1...
+            <br>
+            <a href="https://github.com/yourusername/project1" target="_blank" style="color: #007bff; text-decoration: none;">GitHub Repo</a>
+          </p>
+        </div>
+        <!-- Repeat the above structure for other projects -->
+        <!-- Example for Project 2 -->
+        <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+          <div class="position-relative overflow-hidden mb-2">
+            <img class="img-fluid rounded w-100" src="path/to/project2_image.jpg" alt="Project 2 Image" style="border: 1px solid #ccc;">
+            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+              <a href="path/to/project2_image.jpg" data-lightbox="portfolio">
+                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="text-center" style="color: #212529;">Project Name 2</h3>
+          <p class="text-center" style="color: #495057;">
+            Description for Project 2...
+            <br>
+            <a href="https://github.com/yourusername/project2" target="_blank" style="color: #007bff; text-decoration: none;">GitHub Repo</a>
+          </p>
+        </div>
+        <!-- Add more projects following the same structure -->
+      </div>
+    </div>
+  </div>
+  <!-- Portfolio End -->

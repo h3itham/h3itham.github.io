@@ -1,0 +1,2 @@
+blog iamge size 
+    height: 400 px width: 600 px

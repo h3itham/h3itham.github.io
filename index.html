@@ -3,518 +3,1042 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Haitham - Portfolio </title>
+    <title>Haitham El-Abd - DevOps Engineer Portfolio</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <meta content="DevOps Engineer Portfolio" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    <!-- black background -->
     <style>
-      body {
-        background-color: black;
-      }
+        :root {
+            --primary-color: #00d4aa;
+            --secondary-color: #1a1a2e;
+            --accent-color: #16213e;
+            --text-light: #e94560;
+            --text-muted: #8892b0;
+            --bg-dark: #0a0a0f;
+            --bg-section: #111827;
+            --card-bg: #1f2937;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #e5e7eb;
+            background: var(--bg-dark);
+            overflow-x: hidden;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(10, 10, 15, 0.95) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand h1 {
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        .navbar-nav .nav-link {
+            color: #e5e7eb !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            background: rgba(0, 212, 170, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 170, 0.05) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h3 {
+            color: var(--primary-color);
+            font-weight: 400;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: var(--gradient);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 212, 170, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            padding: 0.75rem 2rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-alt {
+            background: var(--bg-section);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+        }
+
+        .about-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        .info-item strong {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            min-width: 100px;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+            border-color: rgba(0, 212, 170, 0.3);
+        }
+
+        .card-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card h4 {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .card-link:hover {
+            color: #fff;
+        }
+
+        /* Project Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            padding: 3rem 0 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section {
+                padding: 4rem 0;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-info {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Loading Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Typing Animation */
+        .typing-animation {
+            border-right: 2px solid var(--primary-color);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: var(--primary-color); }
+            51%, 100% { border-color: transparent; }
+        }
     </style>
-    
-  
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
-    <!-- Navbar Start -->
-    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-        <a href="index.html" class="navbar-brand ml-lg-3">
-            <h1 class="m-0 display-5"><span class="text-primary">Haitham</span>El-abd</h1>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
-            <div class="navbar-nav m-auto py-0">
-                <a href="#home" class="nav-item nav-link active">Home</a>
-                <a href="#about" class="nav-item nav-link">About</a>
-                <a href="#life-projects" class="nav-item nav-link">Life Projects</a>
-                <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
-                <a href="#blog" class="nav-item nav-link">Blog</a>
-                <a href="#contact" class="nav-item nav-link">Contact</a>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a href="#home" class="navbar-brand">
+                <h1>Haitham<span style="color: var(--primary-color);">El-Abd</span></h1>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#live-projects">Live Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
             </div>
         </div>
     </nav>
-    <!-- Navbar End -->
 
-
-    <!-- Video Modal Start -->
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>        
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Video Modal End -->
-
-
-    <!-- Header Start -->
-  <div class="container-fluid bg-cyan d-flex align-items-center py-3" id="home">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-5 px-5 pl-lg-0 pb-3 pb-lg-0">
-                <img class="img-fluid w-100" src="./img/devops.png" alt="DevOps Image">
-            </div>
-            <div class="col-lg-7">
-                <h3 class="text-white font-weight-normal mb-2">I'm</h3>
-                <h1 class="display-4 text-primary mb-2" style="-webkit-text-stroke: 2px #000000; color: black;">Haitham El-Abd</h1>
-                <h1 class="typed-text-output d-inline font-weight-lighter text-white"></h1>
-                <div class="typed-text d-none black-text">DevOps Engineer., Cloud Engineer., Linux Administrator.</div>
-                <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-3 pt-lg-4">
-                    <a href="https://drive.google.com/file/d/17zFg8B9GL90mAISaPjz51UOoOgA719mE/view?usp=sharing" class="btn btn-outline-light mr-3">Download CV</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <hr class="my-4" style="height: 4px;">
-</div>
-   
-    <!-- Header End -->
-
-
-    <!-- About Start -->
-    <div class="container-fluid py-5" id="about">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                
-                <h1 class="position-absolute text-uppercase text-primary">About Me </h1>
-            </div>
-            <br> 
-            <br> 
-            <br> 
-            <br> 
             <div class="row align-items-center">
-                <div class="col-lg-5 pb-4 pb-lg-0">
-        
-                    <img class="img-fluid rounded w-100" src="img/Haitham-pro.jpg" alt="">
-                </div>
-                <div class="col-lg-7">
-                    <h3 class="mb-4">Devops Engineer</h3>
-                    <p>An accomplished DevOps professional with a comprehensive background in architecting and automating deployments, adept at optimizing operational efficiency. Proficient in cloud computing, containerization, and CI/CD pipelines leveraging technologies such as AWS, Docker, Kubernetes, and Jenkins. With extensive expertise in Linux administration and a solid foundation in networking, security, and application development, I drive continuous improvement strategies and streamline workflows for seamless infrastructure scalability </p>
-                    <div class="row mb-3">
-                        <div class="col-sm-6 py-2"><h6>Name: <span class="text-secondary">Haitham El-abd</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Degree: <span class="text-secondary"> Bachelor's degree in Computer Science.</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Experience: <span class="text-secondary">2 Years</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Phone: <span class="text-secondary">+20 01555847410</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Email: <span class="text-secondary">haithamelabd@outlook.com</span></h6></div>
-
-            
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-<!-- Life Projects Start -->
-<div class="container-fluid pt-5 pb-3" id="life-projects">
-    <div class="container">
-        <div class="position-relative d-flex align-items-center justify-content-center">
-            <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;"><br></h1>
-            <h1 class="position-absolute text-uppercase text-primary">Life Projects</h1>
-        </div>
-        <div class="row portfolio-container">
-            <!-- Add your life projects here -->
-            <div class="col-lg-4 col-md-6 mb-4 portfolio-item">
-                <div class="position-relative overflow-hidden mb-2">
-                    <img class="img-fluid rounded w-100" src="./img/comming.png" alt="Coming Soon" style="border: 1px solid #ccc;">
-                    <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                        <a href="./img/comming.png" data-lightbox="portfolio">
-                            <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                        </a>
+                <div class="col-lg-6">
+                    <div class="hero-content fade-in">
+                        <h3>Hello, I'm</h3>
+                        <h1>Haitham El-Abd</h1>
+                        <p class="subtitle typing-animation">DevOps Engineer | Cloud Architect | Linux Administrator</p>
+                        <p class="lead mb-4">Passionate about automating deployments, optimizing cloud infrastructure, and building scalable solutions that drive business success.</p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="https://drive.google.com/file/d/17zFg8B9GL90mAISaPjz51UOoOgA719mE/view?usp=sharing" class="btn btn-primary" target="_blank">
+                                <i class="fas fa-download me-2"></i>Download CV
+                            </a>
+                            <a href="#contact" class="btn-outline">
+                                <i class="fas fa-envelope me-2"></i>Get In Touch
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <h4 class="text-center" style="color: #212529;">Coming Soon</h4>
-                <p style="color: #495057; text-align: left;">
-                    More exciting life projects will be added here soon. Stay tuned!
-                </p>
+                <div class="col-lg-6">
+                    <div class="hero-image fade-in">
+                        <img src="./img/devops.png" alt="DevOps Illustration" class="img-fluid">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Life Projects End -->
+    </section>
 
-<!-- Portfolio Start -->
-<div class="container-fluid pt-5 pb-3" id="portfolio" style="background-color: #f8f9fa;">
-    <div class="container">
-        <div class="position-relative d-flex align-items-center justify-content-center">
-            <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;"><br></h1>
-            <h1 class="position-absolute text-uppercase text-primary">My Portfolio</h1>
-        </div>
-        <div class="row portfolio-container">
-
-            <!--  start NTI Final project  -->
-            <div class="col-lg-4 col-md-6 mb-4 portfolio-item">
-              <div class="position-relative overflow-hidden mb-2">
-                <img class="img-fluid rounded w-100" src="./img/ArchitectureOverview.gif" alt="Project 1 Image" style="border: 1px solid #ccc;">
-                <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                  <a href="./img/ArchitectureOverview.gif" data-lightbox="portfolio">
-                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                  </a>
-                </div>
-              </div>
-              <h4 class="text-center" style="color: #212529;">NTI Final Project DevOps Automation Track</h4>
-              <p  style="color: #495057; text-align: left;">
-                This project, the culmination of the DevOps and Automation track at NTI, supervised by the Ministry of Communications and Information Technology, deploys a Django app on Amazon EKS using Terraform, with a tailored Jenkins pipeline for automated building, deployment, and developer notifications.
-                <br>
-                <a href="https://github.com/h3itham/NTI-Final-Project-DevOps-Automation/" target="_blank" style="color: #007bff; text-decoration: none;">GitHub Repo</a>
-              </p>
-            </div>
-
-          <!--  end NTI Final project   -->
-            <!--  start project High available  -->
-            <div class="col-lg-4 col-md-6 mb-4 portfolio-item">
-                <div class="position-relative overflow-hidden mb-2">
-                  <img class="img-fluid rounded w-100" src="./img/project1.gif" alt="Project 1 Image" style="border: 1px solid #ccc;">
-                  <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                    <a href="./img/project1.gif" data-lightbox="portfolio">
-                      <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                    </a>
-                  </div>
-                </div>
-                <h4 class="text-center" style="color: #212529;">High-Available-Website-AWS-Terraform</h4>
-                <p  style="color: #495057; text-align: left;">
-                  This project is designed to create AWS infrastructure to support a three-tier web application, specifically tailored for Django, utilizing Terraform. It is organized using modular components to enhance manageability and scalability.
-                  <br>
-                  <a href="https://github.com/h3itham/High-Available-Website-AWS-Terraform" target="_blank" style="color: #007bff; text-decoration: none;">GitHub Repo</a>
-                </p>
-              </div>
-            <!--  end project High available  -->
-
-            <!-- project2 -->
-            <div class="col-lg-4 col-md-6 mb-4 portfolio-item">
-                <div class="position-relative overflow-hidden mb-2">
-                  <img class="img-fluid rounded w-100" src="./img/project01.gif" alt="Project 2 Image" style="border: 1px solid #ccc;">
-                  <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                    <a href="./img/project01.gif" data-lightbox="portfolio">
-                      <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                    </a>
-                  </div>
-                </div>
-                <h4 class="text-center" style="color: #212529;">Three tier web app using Terrafom</h4>
-                <p  style="color: #495057;">
-                  This project is designed to create AWS infrastructure to support a three-tier web application, specifically tailored for Django, utilizing Terraform. It is organized using modular components to enhance manageability and scalability.  
-                  <br>
-                  <a href="https://github.com/h3itham/terraform-aws-django-3tier" target="_blank" style="color: #007bff; text-decoration: none;">GitHub Repo</a>
-                </p>
-              </div>
-            <!-- end project2  -->
-            <!-- start Node project  -->
-            <div class="col-lg-4 col-md-6 mb-4 portfolio-item">
-              <div class="position-relative overflow-hidden mb-2">
-                <img class="img-fluid rounded w-100" src="./img/project2.gif" alt="Project 2 Image" style="border: 1px solid #ccc;">
-                <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                  <a href="./img/project2.gif" data-lightbox="portfolio">
-                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                  </a>
-                </div>
-              </div>
-              <h4 class="text-center" style="color: #212529;">Deploying Node.js App on Amazon EKS with Terraform</h4>
-              <p  style="color: #495057;">
-                This project employs Terraform to craft a resilient AWS infrastructure tailored for deploying a highly available Node.js application on Amazon EKS. Its primary focus lies in establishing fault tolerance and scalability within the AWS environment. By orchestrating crucial components, it ensures uninterrupted availability and resilience for the Node.js application on Amazon EKS. Through meticulous planning, the setup process is streamlined, emphasizing efficient management and scalability. Ultimately, the project aims to guarantee the application's reliability in demanding conditions. 
-                <br>
-                <a href="https://github.com/h3itham/Terraform-AWS-EKS/tree/master" target="_blank" style="color: #007bff; text-decoration: none;">GitHub Repo</a>
-              </p>
-            </div>
-            <!-- end Node Project  -->
-
-            <!-- project 3  -->
-            <div class="col-lg-4 col-md-6 mb-4 portfolio-item">
-                <div class="position-relative overflow-hidden mb-2">
-                  <img class="img-fluid rounded w-100" src="./img/project3.png" alt="Project 2 Image" style="border: 1px solid #ccc;">
-                  <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                    <a href="./img/project3.png" data-lightbox="portfolio">
-                      <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                    </a>
-                  </div>
-                </div>
-                <h4 class="text-center" style="color: #212529;">Node.js CI/CD Pipeline with Jenkins</h4>
-                <p z style="color: #495057;">
-                    This project demonstrates a basic Continuous Integration/Continuous Deployment (CI/CD) pipeline using Jenkins to deploy a simple Node.js application. The pipeline is designed to fetch code from a GitHub repository, build a Docker image, push it to Docker Hub, and deploy the application using Docker Compose on an AWS instance.
-                  <br>
-                  <a href="https://github.com/h3itham/node-cicd" target="_blank" style="color: #007bff; text-decoration: none;">GitHub Repo</a>
-                </p>
-              </div>
-        
-            <!-- end project3  -->
-
-            <!-- start project4 -->
-            <div class="col-lg-4 col-md-6 mb-4 portfolio-item">
-                <div class="position-relative overflow-hidden mb-2">
-                  <img class="img-fluid rounded w-100" src="./img/project4.gif" alt="Project 2 Image" style="border: 1px solid #ccc;">
-                  <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                    <a href="./img/project4.gif" data-lightbox="portfolio">
-                      <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                    </a>
-                  </div>
-                </div>
-                <h4 class="text-center" style="color: #212529;">Image Resizing Project Using AWS Services</h4>
-                <p  style="color: #495057;">
-                  This project involved setting up S3 buckets and Lambda functions for seamless image manipulation and storage. Tasks included bucket configuration, Lambda function development for resizing images upon upload, and performance optimization using CloudWatch. 
-                  <br>
-                 
-                </p>
-              </div>
-              <br> 
-            <!-- end project4 -->
-
-            <!-- start project5 -->
-            <div class="col-lg-4 col-md-6 mb-4 portfolio-item">
-                <div class="position-relative overflow-hidden mb-2">
-                  <img class="img-fluid rounded w-100" src="./img/newspress.png" alt="Project 2 Image" style="border: 1px solid #ccc;">
-                  <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                    <a href="./img/newspress.png" data-lightbox="portfolio">
-                      <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                    </a>
-                  </div>
-                </div>
-                <h4 class="text-center" style="color: #212529;">Django NewsPress</h4>
-                <p  style="color: #495057;">
-                    Django NewsPress is a web application built with Django framework that allows users to read and publish news articles. It provides features such as user registration, authentication, article creation, editing, and more.
-                  <br>
-                  <br>
-                  <a href="https://github.com/h3itham/DjangoNewsPress.git" target="_blank" style="color: #007bff; text-decoration: none;">GitHub Repo</a>
-                </p>
-              </div>
-            <!-- end project5 -->
-
-            <!-- start project6 -->
-            <div class="col-lg-4 col-md-6 mb-4 portfolio-item">
-                <div class="position-relative overflow-hidden mb-2">
-                  <img class="img-fluid rounded w-100" src="./img/laravel.png" alt="Project 2 Image" style="border: 1px solid #ccc;">
-                  <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                    <a href="./img/newspress.png" data-lightbox="portfolio">
-                      <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                    </a>
-                  </div>
-                </div>
-                <h4 class="text-center" style="color: #212529;">Laravel Deployment with Jenkins Pipeline</h4>
-                <p  style="color: #495057;">
-                   Building Jenkins pipeline for deploying Laravel (PHP | Apache | Mysql) Applications. The pipeline automates the build, test, and deployment processes, using Docker, Docker Compose, Ansible, and MySQL as the database engine.
-                  <br>
-                  <br>
-                  <a href="https://github.com/h3itham/Laravel-Jenkins-Pipeline" target="_blank" style="color: #007bff; text-decoration: none;">GitHub Repo</a>
-                </p>
-              </div>
-            <!-- end project6 -->
-
-             <!-- start project7 -->
-            <div class="col-lg-4 col-md-6 mb-4 portfolio-item">
-                <div class="position-relative overflow-hidden mb-2">
-                  <img class="img-fluid rounded w-100" src="./img/haproxy.gif" alt="Project 2 Image" style="border: 1px solid #ccc;">
-                  <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                    <a href="./img/haproxy.gif" data-lightbox="portfolio">
-                      <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                    </a>
-                  </div>
-                </div>
-                <h4 class="text-center" style="color: #212529;">HAProxy Load Balancer with Docker Compose</h4>
-                <p  style="color: #495057;">
-                   This Project demonstrates how to create a simple load balancer using HAProxy and Docker Compose. The setup includes two Apache backend servers that are load balanced by HAProxy.
-                  <br>
-                  <br>
-                  <a href="https://github.com/h3itham/LoadBalancer-HAProxy-Apache.git" target="_blank" style="color: #007bff; text-decoration: none;">GitHub Repo</a>
-                </p>
-              
-              </div>
-             
-            <!-- end project7 -->
-            
-            <!-- start Devops Hive -->
-          
-            <br> 
-            <div class="col-lg-4 col-md-6 mb-4 portfolio-item">
-                <div class="position-relative overflow-hidden mb-2">
-                  <img class="img-fluid rounded w-100" src="./img/comming.png" alt="Project 2 Image" style="border: 1px solid #ccc;">
-                  <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                    <a href="./img/haproxy.gif" data-lightbox="portfolio">
-                      <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                    </a>
-                  </div>
-                </div>
-                <h4 class="text-center" style="color: #212529;">Hive Box</h4>
-                <p  style="color: #495057;">
-                   "Hive Box" is a collaborative project with Ahmed Abouzaid, revolutionizing beekeeping with a scalable RESTful API using OpenSenseMap. It streamlines tasks, offers transparent documentation, and acknowledges contributions from Ahmed Abouzaid and DevOps Hive..
-                  <br>
-                  <br>
-                  <a href="https://github.com/h3itham/hive-box.git" target="_blank" style="color: #007bff; text-decoration: none;">GitHub Repo</a>
-                </p>
-              </div> 
-            <!-- end Devops Hive -->
-        </div>
-    </div>
-</div>
-
-<br> 
-<!-- Portfolio End -->
-
-  
-    <!-- Blog Start -->
-    <div class="container-fluid pt-5" id="blog">
+    <!-- About Section -->
+    <section class="section section-alt" id="about">
         <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;"> <br> </h1>
-                <h1 class="position-absolute text-uppercase text-primary">Latest Blog</h1>
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Learn more about my background, skills, and passion for technology</p>
             </div>
             <div class="row">
-              <!-- start blog 0 -->
-                <div class="col-lg-4 mb-5">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded w-100" src="img/event.gif" alt="">
-                        <div class="blog-date">
-                            <h4 class="font-weight-bold mb-n1">16</h4>
-                            <small class="text-white text-uppercase">Jan</small>
-                        </div>
-                    </div>
-                    <p class="font-weight-medium mb-4">Dive into the world of event-driven architecture on AWS through our guide, centered around the relatable example of S3 bucket deletions. By automating responses to this critical action.</p>
-                    <a class="btn btn-sm btn-outline-primary py-2" href="https://medium.com/@eng.haithamelabd/event-driven-architecture-on-aws-9a11d8d07121">Read More</a>
-                </div>
-                <!-- end of blog 0 -->
-
-              <!-- start blog 1 -->
-                <div class="col-lg-4 mb-5">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded w-100" src="img/eks.png" alt="">
-                        <div class="blog-date">
-                            <h4 class="font-weight-bold mb-n1">03</h4>
-                            <small class="text-white text-uppercase">Jan</small>
-                        </div>
-                    </div>
-                    <p class="font-weight-medium mb-4">Amazon EKS streamlines Kubernetes deployment on AWS, abstracting cluster complexities for streamlined application development, offering users the ability to harness Kubernetes' capabilities without managing underlying infrastructure intricacies.</p>
-                    <a class="btn btn-sm btn-outline-primary py-2" href="https://medium.com/@eng.haithamelabd/navigating-amazon-eks-simplifying-kubernetes-on-aws-85346a80b670">Read More</a>
-                </div>
-                <!-- end of blog 1 -->
-                <!-- start of blog 2 -->
-                <div class="col-lg-4 mb-5">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded w-100" src="img/aws.png" alt="">
-                        <div class="blog-date">
-                            <h4 class="font-weight-bold mb-n1">18</h4>
-                            <small class="text-white text-uppercase">May</small>
-                        </div>
-                    </div>
-                    <p class="font-weight-medium mb-4">Amazon Web Services (AWS) is a cloud computing platform that provides a wide range of services to help businesses and individuals build and manage their applications in the cloud</p>
-                    <a class="btn btn-sm btn-outline-primary py-2" href="https://medium.com/@eng.haithamelabd/getting-started-with-aws-a-beginners-guide-f595c93e1dd">Read More</a>
-                </div>
-                <!-- end of blog 2 -->
-                <!-- start of blog 3  -->
-                <div class="col-lg-4 mb-5">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded w-100" src="img/gitpatches.png" alt="">
-                        <div class="blog-date">
-                            <h4 class="font-weight-bold mb-n1"> 9 </h4>
-                            <small class="text-white text-uppercase">Jan</small>
-                        </div>
-                    </div>
-                    <p class="font-weight-medium mb-4">Explore the power of Git patches in my article, offering insights into efficient code sharing and collaboration. Learn about git diff, patch creation, and seamless integration</p>
-                    <a class="btn btn-sm btn-outline-primary py-2" href="https://medium.com/@eng.haithamelabd/git-patch-fundamentals-d8b85556b87f">Read More</a>
-
-                </div>
-                <!-- end of blog 3  -->
-            </div>
-        </div>
-    </div>
-    <!-- Blog End -->
-
-
-   
-<!-- Contact Start -->
-<div class="container-fluid py-5" id="contact">
-    <div class="container">
-        <div class="position-relative d-flex align-items-center justify-content-center">
-            <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;"><br></h1>
-            <h1 class="position-absolute text-uppercase text-primary">Contact Me</h1>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="contact-form text-center">
-                    <div id="success"></div>
-                    <div class="social-icons">
-                        <!-- LinkedIn -->
-                        <a href="https://www.linkedin.com/in/h3itham" class="btn btn-outline-primary" target="_blank">LinkedIn</a>
+                <div class="col-lg-8">
+                    <div class="about-text">
+                        <h3>DevOps Engineer</h3>
+                        <p>An accomplished DevOps professional with a comprehensive background in architecting and automating deployments, adept at optimizing operational efficiency. Proficient in cloud computing, containerization, and CI/CD pipelines leveraging technologies such as AWS, Docker, Kubernetes, and Jenkins.</p>
                         
-                        <!-- Twitter -->
-                        <a href="https://twitter.com/h3ithmelabd" class="btn btn-outline-primary" target="_blank">Twitter</a>
-                        
-                        <!-- WhatsApp -->
-                        <a href="https://wa.me/+2001555847410" class="btn btn-outline-primary" target="_blank">WhatsApp</a>
+                        <div class="about-info">
+                            <div class="info-item">
+                                <strong>Name:</strong>
+                                <span>Haitham El-Abd</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Degree:</strong>
+                                <span>Bachelor's in Computer Science</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Experience:</strong>
+                                <span>2+ Years</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Phone:</strong>
+                                <span>+20 01555847410</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Email:</strong>
+                                <span>haithamelabd@outlook.com</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Location:</strong>
+                                <span>Egypt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="about-image">
+                        <img src="img/Haitham-pro.jpg" alt="Haitham El-Abd" class="img-fluid">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Contact End -->
+    </section>
 
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5">
-        <div class="container text-center py-5">
-            <div class="d-flex justify-content-center mb-4">
-                <a class="btn btn-light btn-social mr-2" href="https://twitter.com/h3ithmelabd"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="www.linkedin.com/in/h3itham"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="https://wa.me/+2001555847410"><i class="fab fa-whatsapp"></i></a>
+    <!-- Live Projects Section -->
+    <section class="section" id="live-projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Live Projects</h2>
+                <p>Real-world applications currently running in production</p>
             </div>
-           <br> 
-           <br> 
-            <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">Haitham Elabd</a>. All Rights Reserved.  <a class="text-white font-weight-bold" href="https://htmlcodex.com"></a>
-            </p>
+            <div class="project-grid">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./img/hicode.png" alt="HiCode Academy">
+                    </div>
+                    <h4>HiCode Academy</h4>
+                    <p>An educational platform making coding accessible and fun for kids and teens, inspiring creativity and problem-solving skills in young minds.</p>
+                    <a href="https://hicode.academy/?lang=en" target="_blank" class="card-link">
+                        <i class="fas fa-external-link-alt me-1"></i>Visit Website
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./img/event-x.png" alt="Event-X">
+                    </div>
+                    <h4>Event-X</h4>
+                    <p>Comprehensive events management platform providing exhibition participation, corporate events, giveaways, and catering solutions.</p>
+                    <a href="https://www.event-x.me/en" target="_blank" class="card-link">
+                        <i class="fas fa-external-link-alt me-1"></i>Visit Website
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./img/bluebook.png" alt="Bluebook">
+                    </div>
+                    <h4>Bluebook</h4>
+                    <p>Integrated platform providing organized resources, interactive tools, and seamless communication for students, educators and parents.</p>
+                    <a href="https://bluebook.systimate.com/" target="_blank" class="card-link">
+                        <i class="fas fa-external-link-alt me-1"></i>Visit Website
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./img/sebalenses.png" alt="Seba Lenses">
+                    </div>
+                    <h4>Seba Lenses</h4>
+                    <p>Advanced optical solutions platform providing affordable and optically advanced freeform lens technology adapted to individual needs.</p>
+                    <a href="https://sebalenses.com/" target="_blank" class="card-link">
+                        <i class="fas fa-external-link-alt me-1"></i>Visit Website
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./img/tabib.png" alt="Tabib">
+                    </div>
+                    <h4>Tabib</h4>
+                    <p>Comprehensive healthcare platform connecting patients with medical professionals for seamless healthcare delivery.</p>
+                    <a href="https://alizakzouk.online/" target="_blank" class="card-link">
+                        <i class="fas fa-external-link-alt me-1"></i>Visit Website
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./img/nabbiuwny.png" alt="Nabbiuwny">
+                    </div>
+                    <h4>Nabbiuwny</h4>
+                    <p>Educational platform by passionate educators and technologists dedicated to transforming the online learning experience.</p>
+                    <a href="https://nabbiuwny.com/" target="_blank" class="card-link">
+                        <i class="fas fa-external-link-alt me-1"></i>Visit Website
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- Footer End -->
+    </section>
 
-    <!-- Scroll to Bottom -->
-    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
+    <!-- Portfolio Section -->
+    <section class="section section-alt" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Portfolio</h2>
+                <p>A collection of my technical projects and contributions</p>
+            </div>
+            <div class="project-grid">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./img/ArchitectureOverview.gif" alt="NTI Final Project">
+                    </div>
+                    <h4>NTI Final Project - DevOps Automation</h4>
+                    <p>Django app deployment on Amazon EKS using Terraform with Jenkins pipeline for automated CI/CD and developer notifications.</p>
+                    <a href="https://github.com/h3itham/NTI-Final-Project-DevOps-Automation/" target="_blank" class="card-link">
+                        <i class="fab fa-github me-1"></i>GitHub Repository
+                    </a>
+                </div>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-outline-dark px-0 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./img/project1.gif" alt="High Available Website">
+                    </div>
+                    <h4>High-Available Website on AWS</h4>
+                    <p>Three-tier web application infrastructure on AWS using Terraform with modular components for enhanced scalability.</p>
+                    <a href="https://github.com/h3itham/High-Available-Website-AWS-Terraform" target="_blank" class="card-link">
+                        <i class="fab fa-github me-1"></i>GitHub Repository
+                    </a>
+                </div>
 
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./img/project2.gif" alt="EKS Node.js Deployment">
+                    </div>
+                    <h4>Node.js App on Amazon EKS</h4>
+                    <p>Resilient AWS infrastructure for deploying highly available Node.js applications on Amazon EKS with Terraform.</p>
+                    <a href="https://github.com/h3itham/Terraform-AWS-EKS/tree/master" target="_blank" class="card-link">
+                        <i class="fab fa-github me-1"></i>GitHub Repository
+                    </a>
+                </div>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/typed/typed.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./img/project3.png" alt="CI/CD Pipeline">
+                    </div>
+                    <h4>Node.js CI/CD Pipeline</h4>
+                    <p>Complete CI/CD pipeline using Jenkins for Node.js applications with Docker integration and automated deployment.</p>
+                    <a href="https://github.com/h3itham/node-cicd" target="_blank" class="card-link">
+                        <i class="fab fa-github me-1"></i>GitHub Repository
+                    </a>
+                </div>
 
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./img/laravel.png" alt="Laravel Jenkins">
+                    </div>
+                    <h4>Laravel Deployment Pipeline</h4>
+                    <p>Jenkins pipeline for Laravel applications using Docker, Docker Compose, Ansible, and MySQL database engine.</p>
+                    <a href="https://github.com/h3itham/Laravel-Jenkins-Pipeline" target="_blank" class="card-link">
+                        <i class="fab fa-github me-1"></i>GitHub Repository
+                    </a>
+                </div>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./img/haproxy.gif" alt="HAProxy Load Balancer">
+                    </div>
+                    <h4>HAProxy Load Balancer</h4>
+                    <p>Load balancing solution using HAProxy and Docker Compose with Apache backend servers for high availability.</p>
+                    <a href="https://github.com/h3itham/LoadBalancer-HAProxy-Apache.git" target="_blank" class="card-link">
+                        <i class="fab fa-github me-1"></i>GitHub Repository
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest Blog Posts</h2>
+                <p>Sharing knowledge and insights about DevOps and cloud technologies</p>
+            </div>
+            <div class="blog-grid">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/event.gif" alt="Event-Driven Architecture">
+                    </div>
+                    <h4>Event-Driven Architecture on AWS</h4>
+                    <p>Dive into event-driven architecture on AWS through practical examples, centered around S3 bucket deletions and automated responses.</p>
+                    <a href="https://medium.com/@eng.haithamelabd/event-driven-architecture-on-aws-9a11d8d07121" target="_blank" class="card-link">
+                        <i class="fas fa-external-link-alt me-1"></i>Read More
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/eks.png" alt="Amazon EKS">
+                    </div>
+                    <h4>Navigating Amazon EKS</h4>
+                    <p>Learn how Amazon EKS streamlines Kubernetes deployment on AWS, abstracting complexities for streamlined development.</p>
+                    <a href="https://medium.com/@eng.haithamelabd/navigating-amazon-eks-simplifying-kubernetes-on-aws-85346a80b670" target="_blank" class="card-link">
+                        <i class="fas fa-external-link-alt me-1"></i>Read More
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/aws.png" alt="Getting Started with AWS">
+                    </div>
+                    <h4>Getting Started with AWS</h4>
+                    <p>Comprehensive beginner's guide to Amazon Web Services, covering essential services for building cloud applications.</p>
+                    <a href="https://medium.com/@eng.haithamelabd/getting-started-with-aws-a-beginners-guide-f595c93e1dd" target="_blank" class="card-link">
+                        <i class="fas fa-external-link-alt me-1"></i>Read More
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/gitpatches.png" alt="Git Patch Fundamentals">
+                    </div>
+                    <h4>Git Patch Fundamentals</h4>
+                    <p>Explore the power of Git patches for efficient code sharing and collaboration, including practical examples and best practices.</p>
+                    <a href="https://medium.com/@eng.haithamelabd/git-patch-fundamentals-d8b85556b87f" target="_blank" class="card-link">
+                        <i class="fas fa-external-link-alt me-1"></i>Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-alt" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Let's discuss your next project or collaboration opportunity</p>
+            </div>
+            <div class="contact-content">
+                <p class="lead mb-4">I'm always interested in hearing about new opportunities and exciting projects. Whether you're looking for a DevOps engineer or want to discuss cloud architecture, feel free to reach out!</p>
+                
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <i class="fas fa-envelope fa-2x text-primary mb-2"></i>
+                            <h5>Email</h5>
+                            <p class="text-muted">haithamelabd@outlook.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <i class="fas fa-phone fa-2x text-primary mb-2"></i>
+                            <h5>Phone</h5>
+                            <p class="text-muted">+20 01555847410</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <i class="fas fa-map-marker-alt fa-2x text-primary mb-2"></i>
+                            <h5>Location</h5>
+                            <p class="text-muted">Egypt</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/h3itham" target="_blank" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com/h3ithmelabd" target="_blank" class="social-link" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://wa.me/+2001555847410" target="_blank" class="social-link" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://github.com/h3itham" target="_blank" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://medium.com/@eng.haithamelabd" target="_blank" class="social-link" title="Medium">
+                        <i class="fab fa-medium"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p>&copy; 2024 Haitham El-Abd. All Rights Reserved. Built with passion and modern web technologies.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(10, 10, 15, 0.98)';
+                backToTop.classList.add('visible');
+            } else {
+                navbar.style.background = 'rgba(10, 10, 15, 0.95)';
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Active navigation link
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .section-title, .about-content').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Typing animation for hero subtitle
+        const subtitle = document.querySelector('.typing-animation');
+        if (subtitle) {
+            const text = subtitle.textContent;
+            subtitle.textContent = '';
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    subtitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            
+            setTimeout(typeWriter, 1000);
+        }
+
+        // Mobile menu close on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            });
+        });
+
+        // Add loading animation to page
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            
+            setTimeout(function() {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                const rate = scrolled * -0.5;
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Card hover effects
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Skills animation (if you want to add skill bars later)
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const percent = bar.getAttribute('data-percent');
+                bar.style.width = percent + '%';
+            });
+        }
+
+        // Call animations when page loads
+        window.addEventListener('load', function() {
+            // Add stagger animation to cards
+            document.querySelectorAll('.card').forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
 </body>
 
 </html>
